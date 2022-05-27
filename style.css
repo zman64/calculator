@@ -1,0 +1,25 @@
+* {
+    box-sizing: border-box;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    max-width: 1024px;
+    min-height: 400px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.button {
+    width: 30%;
+}

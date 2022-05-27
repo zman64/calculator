@@ -7,7 +7,7 @@ function add(...arr) {
 function subtract(...arr) {
     return arr.reduce((total, currentItem) => {
         return total - currentItem;
-    }, 0)
+    })
 }
 
 function multiply(...arr) {
@@ -20,4 +20,8 @@ function divide(...arr) {
     return arr.reduce((total, currentItem) => {
         return total / currentItem
     });
+}
+
+function operate(operator, ...numbers) {
+    return operator(...numbers)
 }
