@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,13 +12,31 @@
     <!-- This is my own style sheet -->
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <div class="container">
-        <div class="display">125</div>
-        <button class="button digit digit-1">1</button><button class="button digit digit-2">2</button><button class="button digit digit-3">3</button><button class="button digit digit-4">4</button><button class="button digit digit-5">5</button><button class="button digit digit-6">6</button><button class="button digit digit-7">7</button><button class="button digit digit-8">8</button><button class="button digit digit-9">9</button>
+        <div class="display">
+            <div class="display__content">
+                <p>123</p>
+            </div>
+        </div>
+        <button class="button digit digit-1">1</button><button class="button digit digit-2">2</button><button
+            class="button digit digit-3">3</button><button class="button digit digit-4">4</button><button
+            class="button digit digit-5">5</button><button class="button digit digit-6">6</button><button
+            class="button digit digit-7">7</button><button class="button digit digit-8">8</button><button
+            class="button digit digit-9">9</button><button class="button digit digit-0">0</button>
+        <button class="button equals">=</button><button class="button CE">CE</button>
 
-        
     </div>
+
+    <div class="container container--2">
+        <button class="button functions">Add</button>
+         <button class="button functions">Subtract</button>
+         <button class="button functions">Multiply</button>
+          <button class="button functions">Divide</button>
+    </div>
+
     <script src="app.js"></script>
 </body>
+
 </html>
