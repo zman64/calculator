@@ -22,6 +22,7 @@ let calculatedValue = 0;
 display.textContent = 0;
 let isFunctionClicked = false;
 let hitTwice = false;
+let isEqualsClicked = false;
 
 digits.forEach(digit => {
     digit.addEventListener('click', function (e) {
@@ -32,10 +33,13 @@ digits.forEach(digit => {
             display.textContent = input2;
             // isFunctionClicked = false;
             hitTwice = true;
-        } else {
+        }  else {
+            // if(isEqualsClicked) display.te
+            console.log(input1)
             input1 += e.target.value;
             input1 = input1.replace(/^0+/, '');
             display.textContent = input1;
+            isFunctionClicked = false;
         }
     })
 })
@@ -67,26 +71,34 @@ functions.forEach(operator => {
     })
 })
 
-clear.addEventListener('click', function (e) {
-    display.textContent = 0;
-    input1 = 0;
-    input1 = 0;
-    input2 = 0;
-})
-
 equals.addEventListener('click', function (e) {
     hitTwice = false;
+    if (isFunctionClicked) {
+        input2 = parseInt(input2);
+        input1 = parseInt(input1);
+        calculatedValue = operate(operateString, input1, input2);
+        isFunctionClicked = false;
+        input1 = parseInt(calculatedValue);
+        input2 = 0;
+        display.textContent = calculatedValue;
+        calculatedValue = 0;
+        return;
+    } else {
+        input1 = 0;
+        input2 = 0;
+        isFunctionClicked = false;
+    }
+    input1 = 0;
+
+
+})
+
+clear.addEventListener('click', function (e) {
+    hitTwice = false;
     isFunctionClicked = false;
-    input2 = parseInt(input2);
-    input1 = parseInt(input1);
-    // console.log(input1);
-    // console.log(input2);
-    calculatedValue = operate(operateString, input1, input2);
-    console.log(operate(operateString, input1, input2))
+    display.textContent = 0;
     input1 = 0;
     input2 = 0;
-    display.textContent = calculatedValue;
-    calculatedValue = 0;
 })
 
 
