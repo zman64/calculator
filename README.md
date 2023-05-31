@@ -3,6 +3,10 @@
 ## Overview
 This is a simple and clean calculator built using JavaScript. It features a clear, user-friendly interface that allows you to perform basic mathematical operations: addition, subtraction, multiplication, and division. It was designed with an emphasis on readability and clean code.
 
+## Live Demo
+Click [here](https://your-username.github.io/your-repo-name/) to see the live demo of the calculator.
+
+
 ![Calculator App Screenshot](images/calculator-screenshot.png)
 
 ## Code Highlights
