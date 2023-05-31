@@ -64,6 +64,8 @@ export default class Calculator {
           this.clear();
           this.currentOperand = computation;
       } else {
+          //Limit Decimal places to avoid overflow
+          computation = Number(computation.toFixed(4));
           this.currentOperand = computation;
           this.operation = null;
           this.previousOperand = '';
