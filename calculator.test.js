@@ -1,5 +1,5 @@
 // calculator.test.js
-const Calculator = require('./app');  // Assuming calculator.js is the file that contains our Calculator class
+import Calculator from "./calculator.js";  // Assuming calculator.js is the file that contains our Calculator class
 
 describe('Calculator', () => {
   let calculator;
@@ -10,12 +10,12 @@ describe('Calculator', () => {
 
   test('appendNumber appends a number to the current input', () => {
     calculator.appendNumber(7);
-    expect(calculator.currentInput).toBe('7');
+    expect(calculator.currentOperand).toBe('7');
   });
 
   test('chooseOperation sets the operation', () => {
     calculator.chooseOperation('+');
-    expect(calculator.operator).toBe('+');
+    expect(calculator.operation).toBe('+');
   });
 
   test('compute performs the operation', () => {
@@ -23,7 +23,7 @@ describe('Calculator', () => {
     calculator.chooseOperation('+');
     calculator.appendNumber(2);
     calculator.compute();
-    expect(calculator.currentInput).toBe(7);
+    expect(calculator.currentOperand).toBe(7);
   });
 
   test('clear resets all values', () => {
@@ -31,8 +31,8 @@ describe('Calculator', () => {
     calculator.chooseOperation('+');
     calculator.appendNumber(2);
     calculator.clear();
-    expect(calculator.currentInput).toBe('');
-    expect(calculator.operator).toBe(null);
-    expect(calculator.firstInput).toBe(null);
+    expect(calculator.currentOperand).toBe('');
+    expect(calculator.operation).toBe(null);
+    expect(calculator.currentOperand).toBe(null);
   });
 });
