@@ -13,6 +13,7 @@ export default class Calculator {
       if (this.currentOperand === 'Error: Division by zero' ) {
           this.clear();
       }
+      if (number === '.' && this.currentOperand.includes('.')) return;
       this.currentOperand = `${this.currentOperand}${number}`;
     }
   
