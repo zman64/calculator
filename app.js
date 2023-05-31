@@ -1,114 +1,36 @@
-class Calculator {
-    constructor(displayElement) {
-        this.displayElement = displayElement;
-        this.currentInput = '';
-        this.operator = null;
-        this.firstInput = null;
-    }
-
-    updateDisplay() {
-        this.displayElement.textContent = this.currentInput;
-    }
-
-    appendNumber(number) {
-        this.currentInput = this.currentInput.toString() + number.toString();
-        this.updateDisplay();
-    }
-
-    chooseOperation(operation) {
-        if (this.currentInput === '') return;
-        if (this.firstInput !== null) {
-            this.compute();
-        }
-        this.operator = operation;
-        this.firstInput = this.currentInput;
-        this.currentInput = '';
-    }
-    
-    compute() {
-        let result;
-        const prev = parseFloat(this.firstInput);
-        const current = parseFloat(this.currentInput);
-        if (isNaN(prev) || isNaN(current)) return;
-        switch (this.operator) {
-            case '+':
-                result = current + prev;
-                break;
-            case '-':
-                result = prev - current;
-                break;
-            case '*':
-                result = current * prev;
-                break;
-            case '/':
-                result = prev / current;
-                break;
-            default:
-                return;
-        }
-        this.currentInput = result;
-        this.operator = null;
-        this.firstInput = null;
-        this.updateDisplay();
-    }
-
-    clear() {
-        this.currentInput = '';
-        this.operator = null;
-        this.firstInput = null;
-        this.updateDisplay();
-    }
-}
-
+import Calculator from "./calculator.js";
 // Instantiate a new calculator
+const calculator = new Calculator();
+
+// In your main script file, add event listeners to the buttons and update the display
+
+const numberButtons = document.querySelectorAll('.digit');
+const operationButtons = document.querySelectorAll('.functions');
+const equalsButton = document.querySelector('.equals');
+const clearButton = document.querySelector('.clear');
 const display = document.querySelector('.display__content');
-const calculator = new Calculator(display);
 
-const digits = document.querySelectorAll('.digit');
-const functions = document.querySelectorAll('.functions');
-const clear = document.querySelector('.clear');
-const equals = document.querySelector('.equals');
-
-document.querySelectorAll('.digit').forEach(button => {
-    button.addEventListener('click', () => {
-        calculator.appendNumber(button.textContent);
-    });
+numberButtons.forEach(button => {
+  button.addEventListener('click', () => {
+    calculator.appendNumber(button.innerText);
+    display.innerText = calculator.getDisplayNumber(calculator.currentOperand);
+  });
 });
 
-document.querySelectorAll('.functions').forEach(button => {
-    button.addEventListener('click', () => {
-        calculator.chooseOperation(button.textContent);
-    });
+operationButtons.forEach(button => {
+  button.addEventListener('click', () => {
+    calculator.chooseOperation(button.innerText);
+    display.innerText = calculator.getDisplayNumber(calculator.previousOperand);
+  });
 });
 
-document.querySelector('.equals').addEventListener('click', () => {
-    calculator.compute();
-    calculator.updateDisplay();
+equalsButton.addEventListener('click', button => {
+  calculator.calculate();
+  display.innerText = calculator.getDisplayNumber(calculator.currentOperand);
 });
 
-document.querySelector('.clear').addEventListener('click', () => {
-    calculator.clear();
-})
-// add(...arr) {
-//         return arr.reduce((total, currentItem) => {
-//             return total + currentItem;
-//         }, 0)
-//     }
+clearButton.addEventListener('click', button => {
+  calculator.clear();
+  display.innerText = calculator.getDisplayNumber(calculator.currentOperand);
+});
 
-//     subtract(...arr) {
-//         return arr.reduce((total, currentItem) => {
-//             return total - currentItem;
-//         })
-//     }
-
-//     multiply(...arr) {
-//         return arr.reduce((total, currentItem) => {
-//             return total * currentItem
-//         }, 0)
-//     }
-
-//     divide(...arr) {
-//         return arr.reduce((total, currentItem) => {
-//             return total / currentItem
-//         });
-//     }
