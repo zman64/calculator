@@ -1,0 +1,25 @@
+{
+  "name": "calculator",
+  "version": "1.0.0",
+  "description": "basic functioning calculator",
+  "main": "app.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zman64/calculator.git"
+  },
+  "keywords": [
+    "calculator"
+  ],
+  "author": "Zachary Kahlig",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zman64/calculator/issues"
+  },
+  "homepage": "https://github.com/zman64/calculator#readme",
+  "devDependencies": {
+    "jest": "^29.5.0"
+  }
+}
