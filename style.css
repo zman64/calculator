@@ -101,3 +101,25 @@ body {
 }
 
 /* Responsive styling */
+@media screen and (max-width: 600px) {
+    body {
+        font-size: 14px; /* Reduce font size on small screens */
+    }
+
+    .container {
+        grid-template-columns: repeat(2, 1fr);
+        max-width: 100%;
+    }
+
+    .digit-0 {
+        grid-column: span 2;
+    }
+
+    .display {
+        grid-column: span 2;
+    }
+
+    .add, .subtract, .multiply, .divide {
+        grid-column: 2 / 3;
+    }
+}
