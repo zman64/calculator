@@ -2,6 +2,12 @@ export default class Calculator {
     constructor() {
       this.clear();
     }
+
+    toggleSign() {
+      if (this.currentOperand !== '') {
+        this.currentOperand = (parseFloat(this.currentOperand) * -1).toString();
+      }
+    }
   
     clear() {
       this.currentOperand = '';

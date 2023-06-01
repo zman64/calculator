@@ -10,6 +10,12 @@ const equalsButton = document.querySelector('.equals');
 const clearButton = document.querySelector('.clear');
 const display = document.querySelector('.display__content');
 const backspaceButton = document.querySelector('.percent');
+const signButton = document.querySelector('.sign');
+
+signButton.addEventListener('click', () => {
+  calculator.toggleSign();
+  display.innerText = calculator.getDisplayNumber(calculator.currentOperand);
+});
 
 backspaceButton.addEventListener('click', button => {
   calculator.backspace();
