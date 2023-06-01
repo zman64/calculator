@@ -14,6 +14,7 @@ describe('Calculator', () => {
   });
 
   test('chooseOperation sets the operation', () => {
+    calculator.appendNumber(5);
     calculator.chooseOperation('+');
     expect(calculator.operation).toBe('+');
   });
@@ -22,7 +23,7 @@ describe('Calculator', () => {
     calculator.appendNumber(5);
     calculator.chooseOperation('+');
     calculator.appendNumber(2);
-    calculator.compute();
+    calculator.calculate();
     expect(calculator.currentOperand).toBe(7);
   });
 
@@ -33,6 +34,6 @@ describe('Calculator', () => {
     calculator.clear();
     expect(calculator.currentOperand).toBe('');
     expect(calculator.operation).toBe(null);
-    expect(calculator.currentOperand).toBe(null);
+    expect(calculator.previousOperand).toBe('');
   });
 });
