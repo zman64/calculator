@@ -8,6 +8,14 @@ export default class Calculator {
       this.previousOperand = '';
       this.operation = null;
     }
+
+    backspace() {
+      if (this.currentOperand === 'Error: Division by zero') {
+        this.clear();
+      } else {
+          this.currentOperand = this.currentOperand.toString().slice(0, -1);
+      }
+    }
   
     appendNumber(number) {
       if (this.currentOperand === 'Error: Division by zero' ) {
@@ -74,7 +82,12 @@ export default class Calculator {
     }
   
     getDisplayNumber(number) {
-      return number.toString();
+      // if (number === '.') {
+      //   console.log("...");
+      // }
+      // const floatNumber = parseFloat(number);
+      // return Number.isInteger(floatNumber) ? floatNumber.toString() : number;
+      return number.toString()
     }
   }
 
